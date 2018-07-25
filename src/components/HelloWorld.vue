@@ -155,4 +155,28 @@ h2{
 .fade-enter, .fade-leave-to  {
  transform: scale(1.05);
 }
+@media screen and (max-width: 800px){
+  .container{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  input{
+    display: block;
+    width: 90%;
+  margin: 10px auto;
+  }
+  button{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+  img{
+    width: 100%;
+    height: auto;
+  }
+  h2{
+   width: 100%;
+   font-size: 2.5rem;
+  }
+}
 </style>

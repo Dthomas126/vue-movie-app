@@ -3,7 +3,9 @@
   <div class="hello">
     <h2>Search Movie</h2>
 
+<div class="inputSection">
 <input v-model='movieTitle' placeholder="Enter Movie Title..."/><button v-on:click="movieData">Get Movie</button>
+ </div>
   <div class="container">
 
      <a class="float-left" :href="movieInfo.Website"><img v-bind:src="movieInfo.Poster"/></a>
@@ -85,5 +87,11 @@ p{
   font-weight: lighter;
   color: rgb(109, 108, 108);
 }
+.hello{
+  width: 80%;
 
+}
+h2{
+  text-align: center;
+}
 </style>

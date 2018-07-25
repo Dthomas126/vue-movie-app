@@ -2,13 +2,13 @@
 
   <div class="hello">
     <h2>Search A Movie</h2>
-<p>{{movieInfo}}</p>
+
 <div class="inputSection">
 <input v-model='movieTitle' placeholder="Enter Movie Title..."/><button v-on:click="movieData">Show Movie</button>
  </div>
   <div class="container">
 
-     <a class="movie-img" :href="movieInfo.Website"><img v-bind:src="movieInfo.Poster"/></a>
+    <transition name="fade"> <a class="movie-img" :href="movieInfo.Website" v-show="!movieInfo.Poster == ''"><img v-bind:src="movieInfo.Poster"/></a></transition>
   <div class="movieInformation">
   
    <label>Title:</label>
@@ -33,7 +33,7 @@
    <p>{{movieInfo.Awards}}</p>
       </div>
 
-<p>{{movieInfo.Ratings}}</p>
+
  </div>
   </div>
 </template>
@@ -68,7 +68,7 @@ export default {
 .container{
   border-radius: 10px;
   width: 100%;
-  background-color: rgba(216, 216, 216, 0.411);
+  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 15px;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -79,7 +79,7 @@ export default {
 }
 .inputSection{
  padding: 10px;
- background-color: rgba(216, 216, 216, 0.411);
+ background-color: rgba(255, 255, 255, 0.8);
  border-radius: 10px;
  
 }
@@ -92,8 +92,9 @@ img{
   box-shadow:4px 8px 8px 0 grey;
  
 }
+
 button:hover{
-  background-color:black;
+  background-color: rgba(146, 146, 204); 
   color: white;
   transition:.5s ease-in-out;
   cursor: pointer;
@@ -110,33 +111,48 @@ input{
 button{
  margin-left:15px;
   width: 30%;
-
+  background-color: rgba(146, 146, 204, 0.63); 
   height: 33px;
   font-size: 1.1rem;
-  border:none;
+ border:none;
+ color: white;
    border-radius: 5px;
 }
 label{
-
-  border-bottom: 1px solid black;
+ font-family: 'Dosis', sans-serif;
+  border-bottom: 2px solid rgb(134, 125, 125);
+  font-size:1.2rem;
   margin: 0;
+  font-weight: bold;
+  color: rgb(10, 10, 10);
 }
 p{
   margin: 0;
   padding:5px 0;
   font-weight: lighter;
-  color: rgb(109, 108, 108);
+  color: rgb(99, 99, 99);
+  font-size: 1.1rem;
 }
 .hello{
   width: 85%;
   margin: 0 auto;
+  background-color:rgba(0, 0, 0, 0.384);
+  padding: 30px;
+  border-radius: 10px;
 }
 h2{
   text-align: center;
   font-size: 4rem;
   font-family: 'Dosis', sans-serif;
-  border-bottom:3px solid black;
+  border-bottom:3px solid rgba(0, 0, 0, 0.384);
   width: 70%;
-  margin: 5px auto;
+  margin: 20px auto;
+  color: rgba(255, 255, 255, 0.425);
+}
+.fade-enter-active, .fade-leave-active {
+  transition:  transform .5s;
+}
+.fade-enter, .fade-leave-to  {
+ transform: scale(1.05);
 }
 </style>
